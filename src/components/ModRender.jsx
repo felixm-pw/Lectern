@@ -3,7 +3,7 @@ import React from 'react'
 // Material Ui
 import {Button, Grid, Typography, Paper} from '@material-ui/core'
 // External
-import Redirect from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 
 class modules extends React.Component{
