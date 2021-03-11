@@ -53,8 +53,8 @@ class modules extends React.Component{
                     {this.state.data.map((foundSubject, index) => (
                         <Grid item xs={12} md={6} lg={4}>
                             <Paper elevation={3} style={{padding: 10, height: 30, justifyContent: 'center'}}>
-                                <Typography variant="h6" style={{fontSize: 16}}>
-                                    {foundSubject.ModuleName}<Button variant="outlined" style={{height: 30, fontSize: 10, float: "right"}} onClick={() => this.page_move(index)}>View</Button>
+                                <Typography variant="h6" style={{fontSize: 16, color: "#757575"}}>
+                                    {foundSubject.ModuleName}<Button variant="outlined" style={{height: 30, fontSize: 10, float: "right", color: "#757575"}} onClick={() => this.page_move(index)}>View</Button>
                                 </Typography>
                             </Paper>
                         </Grid>

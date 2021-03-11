@@ -1,7 +1,7 @@
 // React
 import React from 'react'
 // Material Ui
-import {Button, List, Grid, Typography, Paper, Divider, Accordion, AccordionSummary, AccordionDetails, ListItem, CircularProgress, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText } from '@material-ui/core'
+import {Button, List, Grid, Typography, Paper, Divider, Accordion, AccordionSummary, AccordionDetails, ListItem, CircularProgress, IconButton } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import EventIcon from '@material-ui/icons/Event'
@@ -10,6 +10,7 @@ import PhoneIcon from '@material-ui/icons/Phone'
 import FolderIcon from '@material-ui/icons/Folder'
 // External
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 // Internal
 import Bar from './Bar.jsx'
 import netcfg from '../network/local-config.js'
@@ -21,12 +22,14 @@ class ModulePage extends React.Component{
       this.list_render_lab = this.list_render_lab.bind(this)
       this.staff_render = this.staff_render.bind(this)
       this.render_page = this.render_page.bind(this)
+      this.page_move = this.page_move.bind(this)
 
       this.state = {
         data: [],
-        open: false,
+        move: "",
         video_url: "",
         video_title: "",
+
       }
   }
 
@@ -42,7 +45,6 @@ class ModulePage extends React.Component{
       this.setState({
         data: response.data
       })
-      console.log(this.state.data)
     })
     .catch((error) => {
         console.log(error)
@@ -75,7 +77,7 @@ class ModulePage extends React.Component{
 
           <Grid item xs={12} md={12} lg={12}>
               <Paper style={{padding: 10}}>
-                <Typography variant="h6">{this.state.data.ModuleName}</Typography>
+                <Typography variant="h6" style={{color: "#757575"}}>{this.state.data.ModuleName}</Typography>
               </Paper>
           </Grid>
 
@@ -93,7 +95,7 @@ class ModulePage extends React.Component{
                 <EventIcon style={{float: "left", marginTop: 3, marginRight: 8, color: "#757575"}}/>
                 <Typography variant="h6" style={{color: "#757575"}}>Meetings & Live Events</Typography>
                 <Divider style={{marginBottom: 10}} />
-                <a href={this.state.data.Zoom} target="_blank">
+                <a href={this.state.data.Zoom} target="_blank" rel="noreferrer">
                   <Button variant="contained" fullWidth={true} style={{backgroundColor: "#2d96ff", color: "white"}}>
                     Join Zoom Room
                   </Button>
@@ -145,7 +147,7 @@ class ModulePage extends React.Component{
             </Accordion>
           </Grid> 
 
-          {/* {this.video_render("Semester-1")} */}
+          {this.state.move}
 
         </Grid>
       )
@@ -158,7 +160,7 @@ class ModulePage extends React.Component{
         {this.state.data.Staff.map((staff) => (
           <div>
             <Typography style={{fontSize: 14}}>{staff.name}
-            <a href={"mailto:"+staff.email} target="_blank" style={{textDecoration: "none"}}>
+            <a href={"mailto:"+staff.email} target="_blank" rel="noreferrer" style={{textDecoration: "none"}}>
               <IconButton size="small" style={{float: "left", marginRight: 2}}>
                 <MailIcon style={{fontSize: 15}} />
               </IconButton>
@@ -177,7 +179,7 @@ class ModulePage extends React.Component{
     return(
       <List>
         {this.state.data.Content.[semester_number].Lectures.map((lectures) => (
-          <ListItem button onClick={() => console.log("")}>
+          <ListItem button onClick={() => this.page_move(lectures)}>
             <Typography style={{marginRight: 6}}>{lectures.Title}: </Typography>
             <Typography>{lectures.Subtitle}</Typography>
           </ListItem>
@@ -190,7 +192,7 @@ class ModulePage extends React.Component{
     return(
       <List>
         {this.state.data.Content.[semester_number].Labs.map((labs) => (
-          <a href={labs.Links} target="_blank" style={{textDecoration: "none", color: "black"}}>
+          <a href={labs.Links} target="_blank" rel="noreferrer" style={{textDecoration: "none", color: "black"}}>
             <ListItem button>
               <Typography style={{marginRight: 6}}>{labs.Title}: </Typography>
               <Typography>{labs.Subtitle}</Typography>
@@ -199,6 +201,12 @@ class ModulePage extends React.Component{
         ))}
       </List>
     )
+  }
+
+  page_move(x){
+    this.setState({
+      move: <Redirect push to={{pathname: "/player", state: {data: x}}} />
+    })
   }
 
 }

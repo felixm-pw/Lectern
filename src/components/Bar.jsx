@@ -20,7 +20,7 @@ class Bar extends React.Component {
                     <IconButton edge="start" aria-label="menu">
                         <SchoolIcon/>
                     </IconButton>
-                        <Typography variant="h6" style={{color: "black"}}>Lectern</Typography>
+                        <Typography variant="h6" style={{color: "#757575"}}>Lectern</Typography>
                     </Toolbar>
                 </AppBar>
             </div>
