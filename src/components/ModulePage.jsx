@@ -1,7 +1,7 @@
 // React
 import React from 'react'
 // Material Ui
-import {Button, List, Grid, Typography, Paper, Divider, Accordion, AccordionSummary, AccordionDetails, ListItem, CircularProgress, IconButton } from '@material-ui/core'
+import { Button, List, Grid, Typography, Paper, Divider, Accordion, AccordionSummary, AccordionDetails, ListItem, CircularProgress, IconButton } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import EventIcon from '@material-ui/icons/Event'

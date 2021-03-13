@@ -1,7 +1,7 @@
 // React
 import React from 'react'
 // Material Ui
-import {Button, Grid, Typography, Paper} from '@material-ui/core'
+import { Button, Grid, Typography, Paper, CircularProgress } from '@material-ui/core'
 // External
 import {Redirect} from 'react-router-dom'
 import axios from 'axios'
@@ -46,7 +46,11 @@ class modules extends React.Component{
  
     subject_render(){
         if (this.state.data.length === 0) {
-            return null;
+            return(
+                <div style={{textAlign: 'center', marginTop: 100, width: "100%"}}>
+                    <CircularProgress />
+                </div>
+            )
         } else {
             return (
                 <>
