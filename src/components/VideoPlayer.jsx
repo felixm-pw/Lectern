@@ -1,7 +1,7 @@
 // React
 import React from 'react'
 // Material Ui
-import {Select, Paper, MenuItem, Typography, Divider } from '@material-ui/core'
+import {Select, Paper, MenuItem, Typography, Divider, Button } from '@material-ui/core'
 // External
 import ReactPlayer from 'react-player'
 // Internal
@@ -60,13 +60,15 @@ class video_player extends React.Component{
                             </div>
                         </div>
                         <div style={{textAlign: 'center', width: '100%'}}>
-                            <Select style={{marginTop: 10, width: "100%", textAlign: "left", color: "#757575"}} onChange={handleChange} defaultValue={this.props.location.state.data.Links[0]}>
-                                {this.menu_render()}
-                            </Select>
+                            <Select variant="outlined" margin='dense' style={{marginTop: 10, width: "100%", textAlign: "left", color: "#757575"}} onChange={handleChange} defaultValue={this.props.location.state.data.Links[0]}>{this.menu_render()}</Select>
+                        </div>
+                        <div>
+                            <a href={this.state.slides} target="_blank" rel="noreferrer" style={{textDecoration: "none"}}>
+                                <Button variant="outlined" style={{display: "block", marginTop: 10, color: "#757575"}}>Download Slides</Button>
+                            </a>
                         </div>
                     </Paper> 
                 </div>
-                
             </div>
         )
     }
