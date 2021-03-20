@@ -20,7 +20,7 @@ class modules extends React.Component{
     componentDidMount(){
         axios({
           method: 'get',
-          url: 'http://localhost:9696/api/listMod',
+          url: 'http://'+netcfg.ip_address+':'+netcfg.port+'/api/listMod',
           responseType: 'json'
         })
         .then((response) => {
