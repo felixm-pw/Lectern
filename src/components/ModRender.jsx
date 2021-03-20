@@ -5,6 +5,8 @@ import { Button, Grid, Typography, Paper, CircularProgress } from '@material-ui/
 // External
 import {Redirect} from 'react-router-dom'
 import axios from 'axios'
+// Internal 
+import netcfg from '../network/local-config.js'
 
 class modules extends React.Component{
     constructor(){

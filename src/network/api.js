@@ -13,8 +13,7 @@ app.use(cors({ credentials: true, origin: '*' }))
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
-AWS.config.loadFromPath('./aws-config.json')
+AWS.config.loadFromPath(__dirname + '/aws-config.json')
 var dynamo = new AWS.DynamoDB.DocumentClient()
 
 //Api Endpoints
