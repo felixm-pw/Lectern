@@ -1,10 +1,11 @@
-# Lectern
+<h1 align="center">Lectern</h1>
+
 Lectern is a proof of concept educational content distribution platform built-in React and Node JS using DynamoDB and other AWS related technologies as part of an Enterpise Application Management project. In addition to conveying informaion and hosting links, it uses S3 storage to provide virutal hosting of course content and hosts lecture recordings so that they can be accessed by students natively, within the application. 
 
 The biggest benefits of Lectern are the following: it is built to be containerized, meaning the service can be scaled up and down to accomodate the current level of acitivty whilst minimising cost to the institution; it also uses a range of AWS tehnologies and pipelines to transcribe and translate lecture content at the point of upload. This unlocks the content more fully for students from a diverse background who may otherwise struggle to engage with content in a second language and help to unlock their full potential.
 
 
-### Features
+## Features
 - Mobile and Desktop scaling
 - Dynamic layout
 - AWS generated subtitles
@@ -13,13 +14,13 @@ The biggest benefits of Lectern are the following: it is built to be containeriz
 - Fault tolerant and highly resilient infrastructure
 - Portable Design
 
-### Screenshots
+## Screenshots
 <center>
 <img style="border: 1px solid gray; margin-top: 10px" width="600px" src="https://felixm.pw/assets/pictures/lectern/frontend1.png" />
 <img style="border: 1px solid gray; margin-top: 10px" width="600px" src="https://felixm.pw/assets/pictures/lectern/frontend2.png" />
 <center>
 
-### Backend Design
+## Backend Design
 <center>
 <img style="border: 1px solid gray; margin-top: 10px" width="600px" src="https://felixm.pw/assets/pictures/lectern/backend1.png" />
 <img style="border: 1px solid gray; margin-top: 10px" width="600px" src="https://felixm.pw/assets/pictures/lectern/backend2.png" />
